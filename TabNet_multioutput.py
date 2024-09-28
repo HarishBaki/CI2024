@@ -149,7 +149,7 @@ def hexbin_plotter(gs,Y,pred,title,text_arg=None):
     ax_hexbin.set_xlim(min_value, max_value)
     ax_hexbin.set_ylim(min_value, max_value)
 
-OUTPUT_DIR = f'models_{experiment}th_set/Ens_{Ens}'
+OUTPUT_DIR = f'trained_models/models_{experiment}th_set/Ens_{Ens}'
 os.system(f'mkdir -p {OUTPUT_DIR}')
 # --- save the normalizing function ---#
 joblib.dump(min_max_scaler, f'{OUTPUT_DIR}/min_max_scaler.joblib')
