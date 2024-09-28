@@ -13,14 +13,28 @@ To run this project locally, follow these steps:
 1. Clone the repository: `git clone https://github.com/HarishBaki/CI2024.git`
 2. Install the required conda dependencies: Install through the TabNet.yml conda environment file
 
+    ` conda env create -f TabNet.yml `
+
+3. 
+    
+
 ## Usage
 
 To use this project, follow these steps:
 
 1. The TabNet_multioutput.py file contails all the necessary script to run tabnet.
-2. This file requires three inputs, one is a config_file, another what are the target variables you want to train, and the ensemble number
-3. An example of execution is  python TabNet_multioutput.py "config.yaml" "[0,1,2,3,4]" "0"
-4. In addition, a bash script is provided run_all_TabNet.sh, which can run 9 ensemble runs in parallel.
+2. This file requires three inputs, 
+    -   A config_file
+    -   The indices of target variables you want to train, in squre brackets seperated by comma
+    -   The ensemble number
+3. An example of execution is 
+
+    ` python TabNet_multioutput.py "config.yaml" "[0,1,2,3,4]" "0" `
+    - Here, the training instructions are provided through config.yaml 
+    - It trains for all the target variables, that are the Chebyshev coefficients from C0 to C4
+    - The training ensemble indice is 0 
+
+4. In addition, a bash script is provided `run_all_TabNet.sh`, which can run 9 ensemble runs in parallel.
 5. The CI2024_plots notebook provides some illustrations used for the publication.
 
 ## Contributing
