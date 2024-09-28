@@ -54,18 +54,7 @@ n_shared = config['n_shared']
 gamma = config['gamma']
 nTrial = config['nTrial']
 nEns = config['nEns']
-feature_importance = config['feature_importance']
-number_of_features = config['number_of_features']
 experiment = config['experiment']
-
-# === Load important features ===#
-if feature_importance[0]:
-    sorted_feature_importance_array = np.load(f'Coefficient_{target_variables[0]}_featImp.npy')    
-    # Access the data from the numpy array
-    feature_names = sorted_feature_importance_array['Feature']
-    importances = sorted_feature_importance_array['Importance']
-    print(feature_names)
-    input_variables = feature_names[:number_of_features[target_variables[0]]]
 
 def data_processing(input_variables,target_variables, dates_range, locations,val_arg=None):
     inputs = xr.open_dataset(input_file)

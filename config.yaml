@@ -92,9 +92,4 @@ test_dates_range:
 test_locations:
   - 0
 
-feature_importance:
- - False
-
-number_of_features: [10,10,10,10,10]
-
 experiment: 8
