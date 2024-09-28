@@ -7,6 +7,7 @@ Progress.pptx
 config_CERRA.yaml
 tabnet_params_12th_set.csv
 tabnet_params_8th_set.csv
+Coefficient_featImp_models_8th_set.csv
 *.nc
 *.png
 *.jpg
