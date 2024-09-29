@@ -1,21 +1,24 @@
-# CI2024 Project
+# Estimating high-resolution profiles of wind speeds from a global reanalysis dataset using TabNet
+## Introduction 
 
-This repository contains the code and resources for the "Estimating high-resolution profiles of wind speeds from a global reanalysis dataset using TabNet" work, which is submitted as a full paper to the Climate Informatics 2024 conference.
+This repository contains the code and resources for the "Estimating high-resolution profiles of wind speeds from a global reanalysis dataset using TabNet" work, which is submitted as a full paper to the Climate Informatics 2024 conference, and will be published as an article in the Environmental Data Science jourbal. 
 
-## Description
+## Hardware requirements
 
-A complete description of the project will be published in the article title "Estimating high-resolution profiles of wind speeds from a global reanalysis dataset using TabNet".
 
-## Installation
+
+## Getting strated guide
 
 To run this project locally, follow these steps:
 
 1. Clone the repository: `git clone https://github.com/HarishBaki/CI2024.git`
-2. Install the required conda dependencies: Install through the TabNet.yml conda environment file
+2. Install the required conda dependencies through the `TabNet.yml` conda environment file
 
     ` conda env create -f TabNet.yml `
 
-3. 
+3. Create `data` folder within the repository. 
+4. Download the data from zenodo repository: `10.5281/zenodo.13854914` and place it within the `data` directory.
+5. Create `data/CERRA_height_level` folder and move `data/2001.nc` file into `data/CERRA_height_level/`. 
     
 
 ## Usage
