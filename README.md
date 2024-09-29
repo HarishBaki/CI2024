@@ -4,8 +4,21 @@
 This repository contains the code and resources for the "Estimating high-resolution profiles of wind speeds from a global reanalysis dataset using TabNet" work, which is submitted as a full paper to the Climate Informatics 2024 conference, and will be published as an article in the Environmental Data Science jourbal. 
 
 ## Hardware requirements
-
-
+1. Operating system 
+    -   PRETTY_NAME="Ubuntu 22.04.4 LTS"
+    -   NAME="Ubuntu"
+    -   VERSION_ID="22.04"
+    -   VERSION="22.04.4 LTS (Jammy Jellyfish)"
+    -   VERSION_CODENAME=jammy
+    -   ID=ubuntu
+    -   ID_LIKE=debian
+2. GPUs
+    - At least one NVIDIA RTX A6000 (or) Quadro P5000 GPU, with 16GB memory
+    - Build cuda_11.5.r11.5/compiler.30672275_0
+3. CPUs
+    - At least 8 cores
+4. Disk space
+    - At least 5 GB
 
 ## Getting strated guide
 
@@ -18,8 +31,7 @@ To run this project locally, follow these steps:
 
 3. Create `data` folder within the repository. 
 4. Download the data from zenodo repository: `https://doi.org/10.5281/zenodo.13854914` and place it within the `data` directory.
-5. Create `data/CERRA_height_level` folder and move `data/2001.nc` file into `data/CERRA_height_level/`. 
-    
+5. Create `data/CERRA_height_level` folder and move `data/2001.nc` file into `data/CERRA_height_level/`.     
 
 ## Usage
 
