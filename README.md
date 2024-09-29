@@ -11,13 +11,13 @@ This repository contains the code and resources for the "Estimating high-resolut
 
 To run this project locally, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/HarishBaki/CI2024.git`
+1. Clone the repository: `git clone git@github.com:HarishBaki/CI2024.git`
 2. Install the required conda dependencies through the `TabNet.yml` conda environment file
 
     ` conda env create -f TabNet.yml `
 
 3. Create `data` folder within the repository. 
-4. Download the data from zenodo repository: `10.5281/zenodo.13854914` and place it within the `data` directory.
+4. Download the data from zenodo repository: `https://doi.org/10.5281/zenodo.13854914` and place it within the `data` directory.
 5. Create `data/CERRA_height_level` folder and move `data/2001.nc` file into `data/CERRA_height_level/`. 
     
 
