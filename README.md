@@ -33,7 +33,7 @@ To run this project locally, follow these steps:
 ### Data
 This data 3.1.1 and 3.1.2 The necessary data for this work can be obtained and setup in the pipline as follows:
 1. Create `data` folder within the repository. 
-2. Download the data from zenodo repository: `https://doi.org/10.5281/zenodo.13854914` and place it within the `data` directory. It will consist of ERA5.nc, 2000.nc and 2001.nc files.
+2. Download the data from zenodo repository: `https://doi.org/10.5281/zenodo.13855454` and place it within the `data` directory. It will consist of ERA5.nc, 2000.nc and 2001.nc files.
 3. Create `data/CERRA_height_level` folder and move `data/2000.nc and data/2001.nc` file into `data/CERRA_height_level/`. This data consists of CERRA vertical wind speed profiles, at 12 vertical levels, as discribed in section 3.1.1 in the main article.
 4. The ERA5.nc file consists of several meteorological variables (both original and derived).  Among the variables, 24 are utilized in training the TabNet models, as described in section 3.1.2 of the main article.
 
@@ -54,7 +54,7 @@ To train the TabNet model for predicting the Chebyshev coefficients of vertical 
     -   A config_file, describing the details of
         -   Input meteorological file, 
         -   Input Chebyshev coefficient file,
-        -   Input variables, 
+        -   Input variables (25 in our case), 
         -   Train dates range,
         -   Train location (among the 11 locations of the dataset, which were initially designed for an elaborate experiments, though only used one location in this work),
         -   Options for n_d, 
@@ -65,28 +65,21 @@ To train the TabNet model for predicting the Chebyshev coefficients of vertical 
         -   Options for nTrials (number of trials for hyperparameter tuning via random search)
         -   Test dates range, 
         -   Test location,
-        -   Experimental indice.
+        -   Experimental indice (8 in our case).
     -   The indices of target variables you want to train, in squre brackets seperated by comma
     -   The ensemble number
 3. An example of execution is 
 
     ` python TabNet_multioutput.py "config.yaml" "[0,1,2,3,4]" "0" `
-    - Here, the training instructions are provided through config.yaml 
+    - Here, the training instructions are provided through config.yaml. Since the nTrials is set 100 within config.yaml, it will run for 100 trials
     - It trains for all the target variables, that are the Chebyshev coefficients from C0 to C4
     - The training ensemble indice is 0 
 
-4. In addition, a bash script is provided `run_all_TabNet.sh`, which can run 9 ensemble runs in parallel.
-5. The CI2024_plots notebook provides some illustrations used for the publication.
+4. Once the training finishes for the ensemble run, the best trained model out of the trials and the corresponding min_max_scaler are saved in trained_models/models_8th_set/Ens_0/
+5. To run all the 10 ensembles with single file, and utilize the computational facility by running trials in parallel, a bash script is provided `run_all_TabNet.sh`, which can run 10 ensemble runs (from 0 to 9).
 
-## Contributing
-
-Contributions are welcome! If you'd like to contribute to this project, please follow these guidelines:
-
-1. Fork the repository
-2. Create a new branch: `git checkout -b feature/your-feature`
-3. Make your changes and commit them: `git commit -m 'Add some feature'`
-4. Push to the branch: `git push origin feature/your-feature`
-5. Submit a pull request
+### Reproducing figures
+5. The CI2024_plots notebook is used to create illustrations for the publication.
 
 ## Contact
 
