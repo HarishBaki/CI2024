@@ -1,7 +1,7 @@
 # Estimating high-resolution profiles of wind speeds from a global reanalysis dataset using TabNet
 ## Introduction 
 
-This repository contains the code and resources for the "Estimating high-resolution profiles of wind speeds from a global reanalysis dataset using TabNet" work, which is submitted as a full paper to the Climate Informatics 2024 conference, and will be published as an article in the Environmental Data Science jourbal. 
+This repository contains the code and resources for the "Estimating high-resolution profiles of wind speeds from a global reanalysis dataset using TabNet" work, which is submitted as a full paper to the Climate Informatics 2024 conference, and will be published as an article in the Environmental Data Science jourbal. The objective of this work is to predict vertical wind speed profiles provided by the meteorological features from ERA5 reanalysis dataset. In doing so, 25 meteorological variables from the ERA5 data are obtained for input features. On the otherhand, the CERRA analysis wind speeds at 12 vertical levels are obtained for targets. Our innovation lies in the idea to make the methodology generic across diverse target datasets. For that, the target wind speeds at 12 vertical levels are transformed into 5 coefficients by Chebyshev polynomial approximation. Now, the DL models trained for predicting 5 coefficients, instead of 12 wind speeds, making the models more prone to learning the physics. Further details of the methodology are presented in the main manuscript. 
 
 ## Hardware requirements
 1. Operating system 
@@ -34,8 +34,10 @@ To run this project locally, follow these steps:
 5. Create `data/CERRA_height_level` folder and move `data/2001.nc` file into `data/CERRA_height_level/`.     
 
 ## Usage
+### Chebyshev polynomial approximation
+As mentioned, the innovation of our idea lies in the fact that the methodology is generic across diverse target wind speed profile datasets. 
 
-To use this project, follow these steps:
+To train the TabNet model for predicting the Chebyshev coefficients of vertical wind speed profiles proided by , follow these steps:
 
 1. The TabNet_multioutput.py file contails all the necessary script to run tabnet.
 2. This file requires three inputs, 
