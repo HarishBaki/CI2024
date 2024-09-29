@@ -27,21 +27,45 @@ To run this project locally, follow these steps:
 1. Clone the repository: `git clone git@github.com:HarishBaki/CI2024.git`
 2. Install the required conda dependencies through the `TabNet.yml` conda environment file
 
-    ` conda env create -f TabNet.yml `
+    ` conda env create -f TabNet.yml `  
 
-3. Create `data` folder within the repository. 
-4. Download the data from zenodo repository: `https://doi.org/10.5281/zenodo.13854914` and place it within the `data` directory.
-5. Create `data/CERRA_height_level` folder and move `data/2001.nc` file into `data/CERRA_height_level/`.     
+## Step-by-step instructions for usage
+### Data
+This data 3.1.1 and 3.1.2 The necessary data for this work can be obtained and setup in the pipline as follows:
+1. Create `data` folder within the repository. 
+2. Download the data from zenodo repository: `https://doi.org/10.5281/zenodo.13854914` and place it within the `data` directory. It will consist of ERA5.nc, 2000.nc and 2001.nc files.
+3. Create `data/CERRA_height_level` folder and move `data/2000.nc and data/2001.nc` file into `data/CERRA_height_level/`. This data consists of CERRA vertical wind speed profiles, at 12 vertical levels, as discribed in section 3.1.1 in the main article.
+4. The ERA5.nc file consists of several meteorological variables (both original and derived).  Among the variables, 24 are utilized in training the TabNet models, as described in section 3.1.2 of the main article.
 
-## Usage
-### Chebyshev polynomial approximation
-As mentioned, the innovation of our idea lies in the fact that the methodology is generic across diverse target wind speed profile datasets. 
+### Chebyshev  coefficient estimation
+-   As mentioned, the innovation of our idea lies in the fact that the methodology is generic across diverse target wind speed profile datasets. 
+-   To compute the Chebyshev polynomials of CERRA wind speed profiles, during 2000 and 2001 years, execute the `Chebyshev_coefficient_estimation.py` as:
 
-To train the TabNet model for predicting the Chebyshev coefficients of vertical wind speed profiles proided by , follow these steps:
+    `python Chebyshev_coefficient_estimation.py`
+
+- This will create `Chebyshev_Coefficnents.nc` file in data directory. 
+- The core function is well documented in `libraries.py` file, which is detailed in section 3.2 of the main article.
+
+### Experimental setup: TabNet model training
+To train the TabNet model for predicting the Chebyshev coefficients of vertical wind speed profiles proided by ERA5 input features, follow these steps:
 
 1. The TabNet_multioutput.py file contails all the necessary script to run tabnet.
 2. This file requires three inputs, 
-    -   A config_file
+    -   A config_file, describing the details of
+        -   Input meteorological file, 
+        -   Input Chebyshev coefficient file,
+        -   Input variables, 
+        -   Train dates range,
+        -   Train location (among the 11 locations of the dataset, which were initially designed for an elaborate experiments, though only used one location in this work),
+        -   Options for n_d, 
+        -   Options for n_steps,
+        -   Options for n_independent,
+        -   Options for n_shared,
+        -   Options for gamma,
+        -   Options for nTrials (number of trials for hyperparameter tuning via random search)
+        -   Test dates range, 
+        -   Test location,
+        -   Experimental indice.
     -   The indices of target variables you want to train, in squre brackets seperated by comma
     -   The ensemble number
 3. An example of execution is 

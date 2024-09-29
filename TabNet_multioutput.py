@@ -53,7 +53,6 @@ n_independent = config['n_independent']
 n_shared = config['n_shared']
 gamma = config['gamma']
 nTrial = config['nTrial']
-nEns = config['nEns']
 experiment = config['experiment']
 
 def data_processing(input_variables,target_variables, dates_range, locations,val_arg=None):
